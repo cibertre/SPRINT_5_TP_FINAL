@@ -1,0 +1,99 @@
+<h1>Agregar País</h1>
+
+<% if(errors.length > 0) { %>
+
+  <% errors.forEach(error => { %>
+
+    <div class="error-box">
+
+      <%= error.msg %>
+
+    </div>
+
+  <% }) %>
+
+<% } %>
+
+<form action="/add" method="POST">
+
+  <input
+  type="text"
+  name="official"
+  placeholder="Nombre oficial"
+  value="<%= oldData.official || '' %>"
+
+    class="<%= errors.some(
+    e => e.path === 'official'
+  ) ? 'input-error' : '' %>"
+  >
+
+  <input
+  type="text"
+  name="capital"
+  placeholder="Capital"
+  value="<%= oldData.capital || '' %>"
+
+  class="<%= errors.some(
+    e => e.path === 'capital'
+  ) ? 'input-error' : '' %>"
+ >
+
+  <input
+  type="text"
+  name="borders"
+  placeholder="Borders"
+  value="<%= oldData.borders || '' %>"
+
+  class="<%= errors.some(
+    e => e.path === 'borders'
+  ) ? 'input-error' : '' %>"
+ >
+
+  <input
+  type="number"
+  name="area"
+  placeholder="Área"
+  value="<%= oldData.area || '' %>"
+
+  class="<%= errors.some(
+    e => e.path === 'area'
+  ) ? 'input-error' : '' %>"
+  >
+
+  <input
+  type="number"
+  name="population"
+  placeholder="Población"
+  value="<%= oldData.population || '' %>"
+
+  class="<%= errors.some(
+    e => e.path === 'population'
+  ) ? 'input-error' : '' %>"
+  >
+
+  <input
+  type="number"
+  step="0.1"
+  name="gini"
+  placeholder="Gini"
+  value="<%= oldData.gini || '' %>"
+
+  class="<%= errors.some(
+    e => e.path === 'gini'
+  ) ? 'input-error' : '' %>"
+ >
+
+  <input
+    type="text"
+    name="timezones"
+    placeholder="Timezones"
+    value="<%= oldData.timezones || '' %>"
+  >
+
+  <button type="submit">
+
+    Guardar
+
+  </button>
+
+</form>

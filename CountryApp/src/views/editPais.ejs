@@ -1,0 +1,98 @@
+<h1>Editar País</h1>
+
+
+<% if(errors.length > 0) { %>
+
+  <% errors.forEach(error => { %>
+
+    <div class="error-box">
+
+      <%= error.msg %>
+
+    </div>
+
+  <% }) %>
+
+<% } %>
+
+<form
+  action="/edit/<%= pais._id %>?_method=PUT"
+  method="POST"
+>
+
+  <input
+  type="text"
+  name="official"
+  value="<%= pais.name.official %>"
+  class="<%= errors.some(
+    e => e.path === 'official'
+  ) ? 'input-error' : '' %>"
+>
+
+ <input
+  type="text"
+  name="capital"
+  value="<%= Array.isArray(pais.capital) ? pais.capital.join(', ') : pais.capital || '' %>"
+
+  class="<%= errors.some(
+    e => e.path === 'capital'
+  ) ? 'input-error' : '' %>"
+>
+
+<input
+  type="text"
+  name="borders"
+  value="<%= Array.isArray(pais.borders) ? pais.borders.join(', ') : pais.borders || '' %>"
+
+  class="<%= errors.some(
+    e => e.path === 'borders'
+  ) ? 'input-error' : '' %>"
+>
+
+<input
+  type="number"
+  name="area"
+  value="<%= pais.area %>"
+
+  class="<%= errors.some(
+    e => e.path === 'area'
+  ) ? 'input-error' : '' %>"
+>
+
+<input
+  type="number"
+  name="population"
+  value="<%= pais.population %>"
+
+  class="<%= errors.some(
+    e => e.path === 'population'
+  ) ? 'input-error' : '' %>"
+>
+  <input
+  type="number"
+  step="0.1"
+  name="gini"
+  value="<%= pais.gini %>"
+
+  class="<%= errors.some(
+    e => e.path === 'gini'
+  ) ? 'input-error' : '' %>"
+>
+
+  <input
+  type="text"
+  name="timezones"
+  value="<%= Array.isArray(pais.timezones) ? pais.timezones.join(', ') : pais.timezones || '' %>"
+
+  class="<%= errors.some(
+    e => e.path === 'timezones'
+  ) ? 'input-error' : '' %>"
+>
+
+  <button type="submit">
+
+    Actualizar
+
+  </button>
+
+</form>

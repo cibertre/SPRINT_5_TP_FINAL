@@ -1,0 +1,361 @@
+<h1>Dashboard</h1>
+
+<% if(errors && errors.length > 0) { %>
+
+  <% errors.forEach(error => { %>
+
+    <div class="error-box">
+
+      <%= error.msg %>
+
+    </div>
+
+  <% }) %>
+
+<% } %>
+
+
+<form
+  action="/dashboard"
+  method="GET"
+  class="filter-form"
+>
+
+<!-- BUSCAR POR NOMBRE -->
+<input
+  type="text"
+  name="nombre"
+  placeholder="Buscar por nombre"
+  value="<%= oldData?.nombre || '' %>"
+
+  class="<%= errors.some(
+    e => e.path === 'nombre'
+  ) ? 'input-error' : '' %>"
+>
+
+<!-- BUSCAR POR CAPITAL -->
+<input
+  type="text"
+  name="capital"
+  placeholder="Buscar por capital"
+  value="<%= oldData?.capital || '' %>"
+
+  class="<%= errors.some(
+    e => e.path === 'capital'
+  ) ? 'input-error' : '' %>"
+>
+
+<!-- POBLACION MINIMA -->
+<input
+  type="number"
+  name="populationMin"
+  placeholder="Población mínima"
+  value="<%= oldData?.populationMin || '' %>"
+
+  class="<%= errors.some(
+    e => e.path === 'populationMin'
+  ) ? 'input-error' : '' %>"
+>
+
+<!-- POBLACION MAXIMA -->
+<input
+  type="number"
+  name="populationMax"
+  placeholder="Población máxima"
+  value="<%= oldData?.populationMax || '' %>"
+
+  class="<%= errors.some(
+    e => e.path === 'populationMax'
+  ) ? 'input-error' : '' %>"
+>
+
+  <button type="submit">
+  Filtrar
+</button>
+
+<a href="/dashboard" class="btn">
+  Limpiar
+</a>
+
+</form>
+
+<br>
+<br>
+
+<div class="stats-container">
+
+  <div class="stat-card">
+
+    <h3>Total Países</h3>
+
+    <h2><%= totalPaises %></h2>
+
+  </div>
+
+  <div class="stat-card">
+
+    <h3>Total Población</h3>
+
+    <h2>
+      <%= totalPopulation.toLocaleString() %>
+    </h2>
+
+  </div>
+
+</div>
+
+<a href="/add" class="btn">
+
+  Agregar País
+
+</a>
+
+<a
+  href="/export/csv?<%= new URLSearchParams(request.query).toString() %>"
+  class="btn-export"
+>
+  Exportar CSV
+</a>
+
+<div class="table-container">
+
+<table border="1">
+
+  <thead>
+
+    <tr>
+
+      <th>Nombre</th>
+      <th>Capital</th>
+      <th>Borders</th>
+      <th>Area</th>
+      <th>Population</th>
+      <th>Gini</th>
+      <th>Timezones</th>
+      <th>Creador</th>
+      <th>Acciones</th>
+
+    </tr>
+
+  </thead>
+
+  <tbody>
+
+    <% paises.forEach(pais => { %>
+
+      <tr>
+
+        <td><%= pais.name.official %></td>
+
+        <td>
+          <%= pais.capital.join(", ") %>
+        </td>
+
+        <td>
+          <%= pais.borders.join(", ") %>
+        </td>
+
+        <td><%= pais.area %></td>
+
+        <td>
+          <%= pais.population.toLocaleString() %>
+        </td>
+
+        <td><%= pais.gini %></td>
+
+        <td>
+          <%= pais.timezones.join(", ") %>
+        </td>
+
+        <td><%= pais.creador %></td>
+
+        <td>
+
+          <a
+            href="/edit/<%= pais._id %>"
+            class="btn"
+          >
+            Editar
+          </a>
+
+          <form
+            class="form-delete"
+            action="/delete/<%= pais._id %>?_method=DELETE"
+            method="POST"
+            style="display:inline;"
+          >
+
+            <button
+              type="submit"
+              class="btn-delete"
+            >
+              Eliminar
+            </button>
+
+          </form>
+
+        </td>
+
+      </tr>
+
+    <% }) %>
+
+  </tbody>
+  <button
+  id="btnTop"
+  class="btn-top"
+>
+  ↑
+</button>
+<script>
+
+  const btnTop =
+    document.getElementById(
+      "btnTop"
+    );
+
+  // MOSTRAR / OCULTAR BOTON
+
+  window.addEventListener(
+    "scroll",
+    () => {
+
+      if (
+        window.scrollY > 300
+      ) {
+
+        btnTop.style.display =
+          "flex";
+
+      } else {
+
+        btnTop.style.display =
+          "none";
+      }
+    }
+  );
+
+  // SCROLL HACIA ARRIBA
+
+  btnTop.addEventListener(
+    "click",
+    () => {
+
+      window.scrollTo({
+
+        top: 0,
+
+        behavior: "smooth"
+      });
+    }
+  );
+
+</script>
+
+  <tfoot>
+
+  <!-- SUBTOTALES PAGINA -->
+
+  <tr class="totales-row">
+
+  <td colspan="3" class="totales-label">
+    Subtotales Página
+  </td>
+
+  <td>
+    <%= subtotalArea.toLocaleString() %>
+  </td>
+
+  <td>
+    <%= subtotalPopulation.toLocaleString() %>
+  </td>
+
+  <td>
+    <%= subtotalPromedioGini %>
+  </td>
+
+  <td colspan="3" class="totales-label">
+  </td>
+
+</tr>
+
+  <!-- TOTALES GENERALES -->
+
+  <tr class="totales-row">
+
+    <td colspan="3">
+
+      Totales Generales
+
+    </td>
+
+    <td>
+
+      <%= totalArea.toLocaleString() %>
+
+    </td>
+
+    <td>
+
+      <%= totalPopulation.toLocaleString() %>
+
+    </td>
+
+    <td>
+
+      <%= promedioGini %>
+
+    </td>
+
+    <td colspan="3"></td>
+
+  </tr>
+
+</tfoot>
+
+</table>
+
+</div>
+
+<div class="pagination">
+
+  <!-- BOTON ANTERIOR -->
+
+  <% if(page > 1) { %>
+
+    <a
+      href="/dashboard?page=<%= page - 1 %>&nombre=<%= request.query.nombre || '' %>&capital=<%= request.query.capital || '' %>&populationMin=<%= request.query.populationMin || '' %>&populationMax=<%= request.query.populationMax || '' %>"
+      class="btn"
+    >
+      Anterior
+    </a>
+
+  <% } %>
+
+  <!-- NUMEROS DE PAGINA -->
+
+  <% for(let i = 1; i <= totalPages; i++) { %>
+
+    <a
+      href="/dashboard?page=<%= i %>&nombre=<%= request.query.nombre || '' %>&capital=<%= request.query.capital || '' %>&populationMin=<%= request.query.populationMin || '' %>&populationMax=<%= request.query.populationMax || '' %>"
+      class="<%= i === page ? 'btn-active' : 'btn' %>"
+    >
+      <%= i %>
+    </a>
+
+  <% } %>
+
+  <!-- BOTON SIGUIENTE -->
+
+  <% if(page < totalPages) { %>
+
+    <a
+      href="/dashboard?page=<%= page + 1 %>&nombre=<%= request.query.nombre || '' %>&capital=<%= request.query.capital || '' %>&populationMin=<%= request.query.populationMin || '' %>&populationMax=<%= request.query.populationMax || '' %>"
+      class="btn"
+    >
+      Siguiente
+    </a>
+
+  <% } %>
+
+</div>

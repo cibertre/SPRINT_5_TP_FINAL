@@ -1,0 +1,1280 @@
+:root {
+
+  --primary: #3b82f6;
+  --primary-dark: #2563eb;
+
+  --success: #22c55e;
+  --danger: #ef4444;
+
+  --glass: rgba(255,255,255,0.08);
+
+  --glass-border:
+    rgba(255,255,255,0.15);
+
+  --text: #ffffff;
+
+  --shadow:
+    0 8px 30px rgba(0,0,0,0.35);
+}
+
+
+/* =========================
+   RESET
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* =========================
+   BODY
+========================= */
+
+body {
+
+  font-family: 'Poppins', sans-serif;
+
+  min-height: 100vh;
+
+  background-image:
+    linear-gradient(
+      rgba(0,0,0,0.55),
+      rgba(0,0,0,0.65)
+    ),
+    url('/images/fondo.jpg');
+
+  background-size: cover;
+
+  background-position: center;
+
+  background-repeat: no-repeat;
+
+  background-attachment: fixed;
+
+  color: white;
+
+  display: flex;
+
+  flex-direction: column;
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+main {
+
+  flex: 1;
+
+  width: 90%;
+
+  margin: 30px auto;
+}
+
+
+
+
+/* =========================
+   NAVBAR NUEVA
+========================= */
+
+.navbar {
+
+  width: 100%;
+
+  padding: 18px 40px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  background: rgba(15,23,42,0.75);
+
+  backdrop-filter: blur(14px);
+
+  border-bottom:
+    1px solid rgba(255,255,255,0.1);
+
+  position: sticky;
+
+  top: 0;
+
+  z-index: 1000;
+}
+
+.logo {
+
+  font-size: 1.5rem;
+
+  font-weight: 700;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  color: #60a5fa;
+}
+
+.nav-links {
+
+  display: flex;
+
+  gap: 18px;
+}
+
+.nav-links a {
+
+  color: white;
+
+  text-decoration: none;
+
+  padding: 12px 18px;
+
+  border-radius: 10px;
+
+  transition: 0.3s;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+
+  background:
+    rgba(255,255,255,0.12);
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+
+  text-align: center;
+
+  padding: 25px;
+
+  background:
+    rgba(15,23,42,0.75);
+
+  backdrop-filter: blur(12px);
+
+  border-top:
+    1px solid rgba(255,255,255,0.08);
+
+  margin-top: 40px;
+
+  color: #cbd5e1;
+}
+
+
+/* =========================
+   TITULOS
+========================= */
+
+h1 {
+
+  margin-bottom: 25px;
+
+  text-align: center;
+
+  font-size: 2.5rem;
+}
+
+h3 {
+
+  margin-bottom: 15px;
+}
+
+
+/* =========================
+   TABLAS
+========================= */
+
+table {
+
+  width: 100%;
+
+  border-collapse: collapse;
+
+  margin-top: 30px;
+
+  background: rgba(15,23,42,0.65);
+
+  backdrop-filter: blur(12px);
+
+  border-radius: 16px;
+
+  overflow: hidden;
+
+  box-shadow: var(--shadow);
+}
+
+thead {
+
+  background:
+    linear-gradient(
+      90deg,
+      #2563eb,
+      #1d4ed8
+    );
+}
+
+thead th {
+
+  padding: 18px;
+
+  font-size: 15px;
+
+  letter-spacing: 1px;
+}
+
+tbody tr {
+
+  transition: 0.3s;
+}
+
+tbody tr:hover {
+
+  background:
+    rgba(255,255,255,0.08);
+
+  transform: scale(1.002);
+}
+
+thead {
+
+  background-color: rgba(255,255,255,0.1);
+}
+
+
+tbody td {
+
+  padding: 14px;
+
+  text-align: center;
+
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.plata {
+
+  background:
+  linear-gradient(
+    135deg,
+    #F2F2F2 0%,
+    #B8B8B8 50%,
+    #5C5C5C 100%
+  );
+
+  color: #000;
+}
+
+.totales-row {
+
+  font-weight: bold;
+}
+
+/* =========================
+   BOTONES
+========================= */
+
+button,
+.btn,
+a.btn {
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #3b82f6
+    );
+
+  color: white;
+
+  border: none;
+
+  padding: 12px 22px;
+
+  border-radius: 12px;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+
+  text-decoration: none;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  font-weight: 600;
+
+  box-shadow:
+    0 6px 20px rgba(37,99,235,0.4);
+}
+
+button:hover,
+.btn:hover,
+a.btn:hover {
+
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 10px 25px rgba(37,99,235,0.55);
+}
+
+
+/* =========================
+   BOTON ELIMINAR
+========================= */
+
+.btn-delete {
+
+  background: #dc2626;
+}
+
+.btn-delete:hover {
+
+  background: #b91c1c;
+}
+
+/*=========================
+BOTON DESLIZAR HACIA ARRIBA
+==========================*/
+.btn-top {
+
+  position: fixed;
+
+  bottom: 25px;
+
+  right: 25px;
+
+  width: 55px;
+
+  height: 55px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: #2563eb;
+
+  color: white;
+
+  font-size: 24px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  display: none;
+
+  align-items: center;
+
+  justify-content: center;
+
+  box-shadow:
+    0 4px 10px rgba(0,0,0,0.3);
+
+  transition: 0.3s;
+
+  z-index: 999;
+}
+
+.btn-top:hover {
+
+  transform: scale(1.1);
+
+  background: #1d4ed8;
+}
+
+/* =========================
+   FORMULARIOS
+========================= */
+
+form {
+
+  width: 100%;
+
+  max-width: 1000px;
+
+  margin: auto;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 20px;
+
+  padding: 40px;
+
+  background:
+    rgba(15,23,42,0.6);
+
+  border-radius: 20px;
+
+  backdrop-filter: blur(15px);
+
+  box-shadow: var(--shadow);
+}
+
+.filter-form {
+
+  width: 100%;
+
+  max-width: 1000px;
+
+  margin: auto;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 20px;
+
+  padding: 35px;
+}
+
+.filter-form input {
+
+  flex: 1;
+
+  width: 100%;
+
+  min-width: 320px;
+
+  height: 58px;
+
+  font-size: 1rem;
+}
+
+.filter-form button {
+
+  min-width: 180px;
+
+  height: 58px;
+
+  font-size: 1rem;
+
+  justify-content: center;
+}
+
+input {
+
+  padding: 16px;
+
+  border-radius: 12px;
+
+  border:
+    1px solid rgba(255,255,255,0.1);
+
+  background:
+    rgba(255,255,255,0.08);
+
+  color: white;
+
+  font-size: 1rem;
+
+  transition: 0.3s;
+
+   min-height: 52px;
+
+}
+
+input:focus {
+
+  border-color: #60a5fa;
+
+  background:
+    rgba(255,255,255,0.12);
+
+  box-shadow:
+    0 0 15px rgba(96,165,250,0.5);
+}
+
+.form-delete {
+
+  display: inline;
+
+  background: transparent;
+
+  border: none;
+
+  padding: 0;
+
+  margin: 0;
+
+  box-shadow: none;
+
+}
+td form {
+
+  background: transparent !important;
+
+}
+
+/* =========================
+   ERRORES DE FORMULARIOS
+========================= */
+
+.input-error {
+
+  border: 2px solid rgb(250, 9, 49);
+
+  background-color: #ffe5e5 !important;
+
+  color: #000 !important;
+}
+
+.input-error::placeholder {
+
+  color: #555;
+}
+
+
+/* =========================
+   LINKS
+========================= */
+
+a {
+
+  color: #93c5fd;
+
+  text-decoration: none;
+}
+
+a:hover {
+
+  text-decoration: underline;
+}
+
+
+/* =========================
+   ERRORES
+========================= */
+
+.error-box {
+
+  background-color: rgba(45, 212, 241, 0.404);
+
+  color: white;
+
+  padding: 12px;
+
+  border-radius: 8px;
+
+  border-left: 5px solid #05e9ca;
+}
+
+.success-box {
+
+  background-color: rgba(34,197,94,0.2);
+
+  color: #bbf7d0;
+
+  padding: 12px;
+
+  border-radius: 8px;
+
+  border-left: 5px solid #22c55e;
+}
+
+.input-error {
+
+  border: 2px solid red;
+}
+
+
+/* =========================
+   DASHBOARD STATS
+========================= */
+
+.stats-container {
+
+  display: flex;
+
+  gap: 20px;
+
+  margin-bottom: 25px;
+
+  flex-wrap: wrap;
+}
+
+.stat-card {
+
+  flex: 1;
+
+  min-width: 250px;
+
+  padding: 30px;
+
+  border-radius: 20px;
+
+  background:
+    rgba(15,23,42,0.7);
+
+  backdrop-filter: blur(15px);
+
+  text-align: center;
+
+  box-shadow: var(--shadow);
+
+  transition: 0.3s;
+}
+
+.stat-card:hover {
+
+  transform:
+    translateY(-5px);
+}
+
+.stat-card h2 {
+
+  font-size: 2rem;
+
+  margin-top: 10px;
+}
+
+
+/* =========================
+   BOTON LIMPIAR DEL DASHBOARD
+========================= */
+
+.btn-clear {
+
+  background: #64748b;
+
+  color: white;
+}
+
+.btn-clear:hover {
+
+  background: #475569;
+}
+
+
+/* =========================
+   HOME
+========================= */
+
+.hero {
+
+  text-align: center;
+
+  padding: 140px 20px;
+
+  animation: fadeIn 1s ease;
+}
+
+.hero h1 {
+
+  font-size: 5rem;
+
+  margin-bottom: 20px;
+
+  font-weight: 700;
+
+  text-shadow:
+    0 4px 20px rgba(0,0,0,0.6);
+}
+
+.hero p {
+
+  font-size: 1.4rem;
+
+  max-width: 850px;
+
+  margin: auto;
+
+  line-height: 1.8;
+
+  color: #e2e8f0;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width: 768px) {
+
+  /* =========================
+     NAVBAR
+  ========================= */
+
+  .navbar {
+
+    flex-direction: column;
+
+    padding: 15px 20px;
+
+    gap: 15px;
+  }
+
+  .logo {
+
+    font-size: 1.3rem;
+  }
+
+  .nav-links {
+
+    width: 100%;
+
+    flex-direction: column;
+
+    gap: 10px;
+  }
+
+  .nav-links a {
+
+    width: 100%;
+
+    justify-content: center;
+
+    padding: 14px;
+  }
+
+  /* =========================
+     HERO
+  ========================= */
+
+  .hero {
+
+    padding: 80px 15px;
+  }
+
+  .hero h1 {
+
+    font-size: 2.5rem;
+
+    line-height: 1.2;
+  }
+
+  .hero p {
+
+    font-size: 1rem;
+
+    line-height: 1.7;
+  }
+
+  /* =========================
+     MAIN
+  ========================= */
+
+  main {
+
+    width: 95%;
+  }
+
+  /* =========================
+     STATS
+  ========================= */
+
+  .stats-container {
+
+    flex-direction: column;
+  }
+
+  .stat-card {
+
+    width: 100%;
+  }
+
+  /* =========================
+     FORMULARIOS
+  ========================= */
+
+  form {
+
+    padding: 25px 20px;
+  }
+
+  input {
+
+    font-size: 16px;
+  }
+
+  /* =========================
+     TABLAS RESPONSIVE
+  ========================= */
+
+  table {
+
+    display: block;
+
+    overflow-x: auto;
+
+    white-space: nowrap;
+
+    border-radius: 12px;
+  }
+
+  thead th,
+  tbody td {
+
+    padding: 12px;
+  }
+
+  /* =========================
+     BOTONES
+  ========================= */
+
+  .btn,
+  .btn-export,
+  button {
+
+    width: 100%;
+
+    justify-content: center;
+  }
+
+  /* =========================
+     PAGINACION
+  ========================= */
+
+  .pagination {
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+  }
+
+  /* =========================
+     FOOTER
+  ========================= */
+
+  footer {
+
+    padding: 20px 10px;
+
+    font-size: 14px;
+  }
+  .filter-form {
+
+  flex-direction: column;
+}
+
+.filter-form input {
+
+  width: 100%;
+}
+}
+/*=====================
+MEDIA QUERY PARA TABLET
+=======================*/
+
+@media(min-width: 769px) and (max-width: 1024px) {
+
+  .hero h1 {
+
+    font-size: 3.5rem;
+  }
+
+  .stats-container {
+
+    grid-template-columns: 1fr 1fr;
+  }
+
+  table {
+
+    font-size: 14px;
+  }
+}
+
+/*===========================
+MEJORA VISUAL EXTRA PARA MOVILES
+============================*/
+
+@media(max-width: 768px) {
+
+  body {
+
+    background-attachment: scroll;
+  }
+}
+
+/* ===========================
+TABLA EN MODO CELULAR
+============================*/
+
+.table-container {
+
+  width: 100%;
+
+  overflow-x: auto;
+
+  border-radius: 16px;
+}
+
+/* ========================
+MEJORAR TOUCH EN ANDROID CEL
+============================*/
+
+button,
+.btn,
+input,
+a {
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hero h1 i {
+
+  display: block;
+
+  margin-bottom: 15px;
+
+  color: #60a5fa;
+}
+
+tfoot {
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,0.08),
+      rgba(255,255,255,0.12)
+    );
+
+  backdrop-filter: blur(8px);
+
+  font-weight: bold;
+}
+
+
+/* =========================
+   FILA DE TOTALES
+========================= */
+
+.totales-row td {
+
+  padding: 18px;
+
+  text-align: center;
+
+  vertical-align: middle;
+
+  backdrop-filter: blur(10px);
+
+  font-weight: 600;
+
+  font-size: 15px;
+
+  color: #ffd54f;
+
+  background: rgba(255,255,255,0.08);
+
+  border-top:
+    1px solid rgba(255,255,255,0.08);
+}
+
+.totales-label {
+
+  text-align: center;
+
+  font-size: 24px;
+
+
+}
+
+/* =========================
+   BOTON DE EXPORTAR CSV
+========================= */
+
+.btn-export {
+
+  background-color: #16a34a;
+
+  color: white;
+
+  padding: 10px 20px;
+
+  border-radius: 8px;
+
+  text-decoration: none;
+
+  font-weight: bold;
+}
+
+.btn-export:hover {
+
+  opacity: 0.9;
+}
+
+/* =========================
+   PAGINACIÓN
+========================= */
+
+.pagination {
+
+  margin-top: 20px;
+
+  display: flex;
+
+  gap: 10px;
+
+  justify-content: center;
+
+  align-items: center;
+}
+
+.btn-active {
+
+  background-color: #ffd700;
+
+  color: black;
+
+  padding: 8px 14px;
+
+  border-radius: 6px;
+
+  text-decoration: none;
+
+  font-weight: bold;
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about-card {
+
+    text-align: center;
+
+    padding: 40px;
+
+    max-width: 800px;
+
+    margin: auto;
+
+}
+
+.about-card h1 {
+
+    margin-bottom: 20px;
+
+    color: #79aee4;
+
+}
+
+.about-card p {
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+    margin-bottom: 20px;
+
+}
+
+/* =========================
+   ABOUT MODERNO
+========================= */
+
+.about-section {
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  padding: 40px 20px;
+}
+
+.about-card {
+
+  width: 100%;
+
+  max-width: 950px;
+
+  padding: 50px;
+
+  border-radius: 24px;
+
+  background:
+    rgba(15,23,42,0.72);
+
+  backdrop-filter: blur(16px);
+
+  box-shadow: var(--shadow);
+
+  text-align: center;
+
+  animation: fadeIn 1s ease;
+}
+
+.about-icon {
+
+  width: 90px;
+
+  height: 90px;
+
+  margin: auto;
+
+  margin-bottom: 25px;
+
+  border-radius: 50%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #3b82f6
+    );
+
+  font-size: 2.5rem;
+
+  color: white;
+
+  box-shadow:
+    0 10px 30px rgba(37,99,235,0.4);
+}
+
+.about-card h1 {
+
+  font-size: 3rem;
+
+  margin-bottom: 30px;
+}
+
+.about-description {
+
+  font-size: 1.1rem;
+
+  line-height: 1.9;
+
+  color: #e2e8f0;
+
+  margin-bottom: 25px;
+}
+
+.about-features {
+
+  margin-top: 40px;
+
+  margin-bottom: 40px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(220px, 1fr));
+
+  gap: 20px;
+}
+
+.feature-item {
+
+  padding: 25px;
+
+  border-radius: 18px;
+
+  background:
+    rgba(255,255,255,0.06);
+
+  transition: 0.3s;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 15px;
+}
+
+.feature-item:hover {
+
+  transform:
+    translateY(-5px);
+
+  background:
+    rgba(255,255,255,0.1);
+}
+
+.feature-item i {
+
+  font-size: 2rem;
+
+  color: #60a5fa;
+}
+
+.feature-item span {
+
+  font-weight: 500;
+}
+
+.about-btn {
+
+  padding: 16px 28px;
+
+  font-size: 1rem;
+}
+/*===========================
+ABOUT MODERNO - MOBILE
+=============================*/
+
+.about-card {
+
+  padding: 30px 20px;
+}
+
+.about-card h1 {
+
+  font-size: 2.2rem;
+}
+
+.about-description {
+
+  font-size: 1rem;
+}
+
+.about-features {
+
+  grid-template-columns: 1fr;
+}
+
+@keyframes fadeIn {
+
+  from {
+
+    opacity: 0;
+
+    transform: translateY(20px);
+  }
+
+  to {
+
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}

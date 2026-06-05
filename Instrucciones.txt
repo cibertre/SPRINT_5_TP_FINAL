@@ -1,0 +1,59 @@
+Instalacíon y ejecución de CountryAPP
+
+Requisitos previos:
+
+Antes de iniciar CountryAPP debes tener instalado:
+° Node.JS v18 o superior
+° MongoDB
+° Git (opcional)
+
+1.- Clonar el proyecto
+Repositorio en la.................
+
+Entrar en la carpeta CountryAPP
+
+2.- Instalar dependencias
+
+En consola (Shell de windows o bash de su preferencia)
+Ejecutar "npm install"
+
+Esto instalara todas las dependencias del proyecto (Express, Mongoose, EJS, Axios, Express Validator, Json2CSV, Nodemon, etc)
+
+3.- Iniciar MongoDB
+
+Asegurarse de que MongoDB ese ejecutandose localmente, para ello hay 2 opciones (segun tu instalacion previa):
+
+« En consola de windows shell o bien en bash (de su preferencia) ejecutar "net start MongoDB".-
+« O iniciar MongoDB Compass manualmente.
+
+4.- Ejecutar el proyecto
+
+En consola ejecutar la expresion "npm start".
+Aguardar el seeder automatico, hasta que en consola aparezca la leyenda "servidor funcionando en puerto 3000"
+
+5.- Abrir la aplicacion
+
+Para ello hay que ingresar en el navegador la siguiente url "http://localhost:3000"
+
+¡¡y listo ingresaste a "CountryAPP"®!!
+
+
+FUNCIONALIDAD:
+
+La aplicación permite:
+
+• Visualizar países hispanohablantes de América
+• Agregar países manualmente
+• Editar países
+• Eliminar países
+• Filtrar por:
+               nombre
+               capital
+               población mínima
+               población máxima
+• Exportar resultados a CSV (de los que muestra en pantalla completos y filtrados)
+• Paginación (muestra cada 5 paises por pagina)
+• Validaciones backend
+• Manejo visual de errores con mensajes amigables, claros y legibles
+• Cacheo de API externa
+
